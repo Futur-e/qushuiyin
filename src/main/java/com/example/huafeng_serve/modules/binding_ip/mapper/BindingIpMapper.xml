@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.huafeng_serve.modules.binding_ip.mapper.BindingIpMapper">
+    <select id="selectByPage" resultType="com.example.huafeng_serve.modules.binding_ip.entity.BindingIp">
+        SELECT
+            b.id,
+            b.ip,
+            b.is_disable
+        FROM
+            binding_ip AS b
+        WHERE 1=1
+        <if test="param.ip!=null">
+            AND b.ip = #{param.ip}
+        </if>
+        <if test="param.isDisable!=null">
+            AND b.is_disable = #{param.isDisable}
+        </if>
+    </select>
+</mapper>

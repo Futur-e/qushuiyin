@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.huafeng_serve.modules.analysis_logs.mapper.AnalysisLogsMapper">
+    <select id="selectByPage" resultType="com.example.huafeng_serve.modules.analysis_logs.entity.AnalysisLogs">
+        SELECT a.id,
+               a.content,
+               a.cover,
+               a.user_id,
+               a.created_time,
+               a.img_urls,
+               a.img_download_urls,
+               a.platform,
+               a.title,
+               a.type,
+               a.updated_time,
+               a.url,
+               a.video_url,
+               a.video_download_url
+        FROM analysis_logs as a
+        WHERE 1=1
+        <if test="param.userId!=null">
+            AND a.user_id = #{param.userId}
+        </if>
+        <if test="param.platform!=null">
+            AND a.platform = #{param.platform}
+        </if>
+        <if test="param.type!=null">
+            AND a.type = #{param.type}
+        </if>
+        <if test='param.createdStartTime!=null and param.createdStartTime!=""'>
+            <![CDATA[AND a.created_time >= #{param.createdStartTime}]]>
+        </if>
+        <if test='param.createdEndTime!=null and param.createdEndTime!=""'>
+            <![CDATA[AND a.created_time <= #{param.createdEndTime}]]>
+        </if>
+        ORDER BY a.created_time DESC
+    </select>
+</mapper>

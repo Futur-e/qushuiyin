@@ -1,0 +1,20 @@
+
+#去水印自定也参数
+unwatermark:
+  # 服务器下载地址- 1
+  unwatermarkFile: "/Users/zhangzhang/Desktop/备份数据/张红亮/del-shuiying/短视频去水印工具吧/Tools-Services/upload"
+  # 文件地址
+  file: "/Users/zhangzhang/Desktop/备份数据/张红亮/del-shuiying/短视频去水印工具吧/Tools-Services/upload"
+  # 七牛云地址
+  qiniuFile: ""
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: xiuxiu_serve
+  datasource:
+    url: jdbc:mysql://123.57.194.211:3306/tools?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Zhl254827

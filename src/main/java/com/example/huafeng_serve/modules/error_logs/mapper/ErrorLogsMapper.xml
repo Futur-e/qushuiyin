@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.huafeng_serve.modules.error_logs.mapper.ErrorLogsMapper">
+    <select id="selectByPage" resultType="com.example.huafeng_serve.modules.error_logs.entity.ErrorLogs">
+        SELECT e.id,
+               e.user_id,
+               e.type,
+               e.url,
+               e.`describe`,
+               e.analysis_type,
+               e.created_time,
+               e.updated_time
+        FROM error_logs AS e
+        WHERE 1 = 1
+        <if test="param.userId!=null">
+            AND e.user_id = #{param.userId}
+        </if>
+        <if test="param.type!=null">
+            AND e.type = #{param.type}
+        </if>
+        <if test="param.url!=null">
+            AND e.url = #{param.url}
+        </if>
+        <if test="param.analysisType!=null">
+            AND e.analysis_type = #{param.analysisType}
+        </if>
+        <if test='param.createdStartTime!=null and param.createdStartTime!=""'>
+            <![CDATA[AND e.created_time >= #{param.createdStartTime}]]>
+        </if>
+        <if test='param.createdEndTime!=null and param.createdEndTime!=""'>
+            <![CDATA[AND e.created_time <= #{param.createdEndTime}]]>
+        </if>
+        ORDER BY e.created_time DESC
+    </select>
+</mapper>
