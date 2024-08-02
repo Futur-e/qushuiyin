@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>huafeng_serve</artifactId>
+    <artifactId>Tools-Services</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>serve</name>
     <description>serve</description>
@@ -47,6 +47,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.11.3</version>
         </dependency>
         <dependency>
             <groupId>com.github.binarywang</groupId>

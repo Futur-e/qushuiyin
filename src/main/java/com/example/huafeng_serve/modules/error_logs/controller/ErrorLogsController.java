@@ -22,7 +22,7 @@ public class ErrorLogsController {
         return R.success(page);
     }
 
-    @PostMapping("/insert")
+    @PostMapping("/")
     public R<String> insertErrorLogs(@RequestBody  ErrorLogs param) {
         String s = errorLogsService.insertErrorLogs(param);
         return R.success(s);
