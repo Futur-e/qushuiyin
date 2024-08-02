@@ -16,4 +16,6 @@ public class WaiBuCart {
 
     private String brand;
 
+    private String bluetooth;
+
 }
